@@ -1,4 +1,10 @@
 
+/*******************************************************************
+ * 
+ * Written by Mithi Sevilla | Nov 30, 2015 | http://mithi.xyz
+ * 
+ *******************************************************************/
+
 #include "SimpleLibraryConstants.h"
 
 class AnalogLED{
