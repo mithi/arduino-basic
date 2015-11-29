@@ -1,3 +1,4 @@
+
 #include "SimpleLibrary.h"
 
 SevenSegment SSD;
@@ -12,3 +13,4 @@ void setup() {
 void loop() {
   SSD.SetRaw(A);
 }
+
