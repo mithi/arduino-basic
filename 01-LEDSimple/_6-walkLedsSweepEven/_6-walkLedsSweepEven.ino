@@ -45,7 +45,7 @@ void blinkLed(int x){
 
 void SweepUp(int x, int fadeAmount, int waitTime){
   for(int brightness = 0; brightness <= maxBrightness; brightness+=fadeAmount)
-      setLed(pin[x], brightness, waitTime);
+    setLed(pin[x], brightness, waitTime);
 }
 
 void SweepDown(int x, int fadeAmount, int waitTime){
