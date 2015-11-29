@@ -28,9 +28,8 @@ void loop() {
   if(button[2].JustPressed())
     led[2].Toggle();
 
-  if(button[3].JustPressed()){ 
+  if(button[3].JustPressed())
     doLEDSequence();
-  }
 }
 
 void doLEDSequence(){
