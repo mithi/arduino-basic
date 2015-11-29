@@ -12,5 +12,6 @@ void setup() {
 
 void loop() {
   servo.write(pot.MappedValue(0,180));
+  delay(10);
 }
 
