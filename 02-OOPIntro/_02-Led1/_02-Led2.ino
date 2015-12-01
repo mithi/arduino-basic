@@ -2,8 +2,7 @@
 #include "SimpleLibrary.h"
 
 DigitalLED led;
-int x;
-int DELAY = 500;
+const int DELAY = 500;
 
 
 void setup() {
