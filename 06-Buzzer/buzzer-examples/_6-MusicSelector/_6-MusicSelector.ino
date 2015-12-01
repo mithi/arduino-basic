@@ -9,7 +9,7 @@ Button button;
 
 int x = 0;
 int m = 0;
-int tuneCount = 2;
+const int tuneCount = 2;
 
 int *currentTune;
 int *currentTuneTempo;
