@@ -1,5 +1,5 @@
 
-int ledPin = 11;
+const int ledPin = 11;
 int onTime = 1000;
 int offTime = 500;
 
