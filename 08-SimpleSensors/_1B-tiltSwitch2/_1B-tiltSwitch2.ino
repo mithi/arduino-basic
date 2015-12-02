@@ -7,6 +7,7 @@ DigitalSensor tiltSwitch;
 volatile unsigned long lastTilt = millis();
 volatile unsigned long thresh = 400;
 volatile unsigned long tiltCount = 0;
+volatile bool tilted = 0;
 
 void setup() {
 
@@ -29,13 +30,19 @@ void loop() {
     Serial.print("\t Tilt Count:");
     Serial.println(tiltCount);    
   }
+
+  if(tilted){
+    Serial.println("tilt Switch has tilted!");
+    tilted = 0;  
+  }
 }
 
 void tilt(){
-  if (millis() - lastTilt > thresh){
-    Serial.println("tilt Switch has tilted!");
-    lastTilt = millis();
+  unsigned long mil = millis();
+  if (mil - lastTilt > thresh){
+    lastTilt = mil;
     tiltCount++;
+    tilted = 1;
   }
 }
 

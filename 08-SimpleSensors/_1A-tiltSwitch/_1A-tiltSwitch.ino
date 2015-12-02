@@ -3,6 +3,7 @@
 
 TimingManager timing;
 DigitalSensor tiltSwitch;
+bool tilted = 0;
 
 void setup() {
 
@@ -21,10 +22,15 @@ void loop() {
     Serial.print("\t State:");
     Serial.println(tiltSwitch.State());
   }
+
+  if(tilted){
+    Serial.println("tilt Switch has tilted!");
+    tilted = 0;
+  }
 }
 
 void tilt(){
-  
-  Serial.println("tilt Switch has tilted!");
+  tilted = 1;   
+
 }
 
