@@ -443,7 +443,7 @@ bool TimingManager::Tick(){
 }
 
 /*****************************************************
- *  SEQUENCE STATE UPDATER
+ *  SEQUENCER
  *****************************************************/
 
 void Sequencer::New(LedsManager* LM){
