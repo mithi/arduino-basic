@@ -18,7 +18,7 @@ void setup() {
 }
 
 void loop() {
-  f = sweeper.Update(metronome.IsTimeToUpdate()); 
+  f = sweeper.Next(metronome.Tick()); 
   buzzer.Play(f, 3, 1);
 }
 

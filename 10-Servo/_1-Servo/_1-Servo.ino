@@ -9,11 +9,11 @@ TimingManager timing;
 void setup() {
   servo.attach(9);
   sweeper.New(0, 180, BACKANDFORTH);
-  timing.New(15);
+  timing.New(5);
 }
 
 void loop() {
-  servo.write(sweeper.Update(timing.IsTimeToUpdate()));
+  servo.write(sweeper.Next(timing.Tick()));
 }
 
 

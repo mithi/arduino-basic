@@ -5,12 +5,12 @@ Sweeper sweeper;
 AnalogLED led;
 
 void setup(){
-  led.New(9);
+  led.New(11);
   sweeper.New(0, 100, BACKANDFORTH);
 }
 
 void loop(){
- led.NewBrightness(sweeper.Update(1));
+ led.NewBrightness(sweeper.Next(1));
  delay(10);
 }
 

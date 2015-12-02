@@ -5,7 +5,7 @@
 Buzzer buzzer;
 
 void setup() {
-  buzzer.New(12, 1.5, 1000);
+  buzzer.New(13, 1.5, 1000);
 }
 
 void loop() {
@@ -18,7 +18,7 @@ void loop() {
 
 }
 
-void playMusic(int tune[], int tempo[], int tuneSize){
+void playMusic(int tune[], byte tempo[], int tuneSize){
   for(int note = 0; note < tuneSize; note++)
     buzzer.PlayNote(tune[note], float(tempo[note]));
 }

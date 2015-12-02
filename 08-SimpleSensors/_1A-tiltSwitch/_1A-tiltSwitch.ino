@@ -1,29 +1,25 @@
 
 #include "SimpleLibrary.h"
 
-TimingManager printTiming;
+TimingManager timing;
 DigitalSensor tiltSwitch;
 
 void setup() {
 
   tiltSwitch.New(3, INPUT_PULLUP, HIGH);
-  printTiming.New(1000);
+  timing.New(1000);
   attachInterrupt(digitalPinToInterrupt(tiltSwitch.Pin()), tilt, CHANGE);
   Serial.begin(9600);
 }
 
 void loop() {
 
-  if(printTiming.IsTimeToUpdate()){
+  if(timing.Tick()){
     
-    Serial.println("TILT SWITCH!");
-    Serial.print("Value:");
-    
-    Serial.println(tiltSwitch.Value());
-    Serial.print("State:");
-    
+    Serial.print("Value:");    
+    Serial.print(tiltSwitch.Value());
+    Serial.print("\t State:");
     Serial.println(tiltSwitch.State());
-    Serial.println(" ");
   }
 }
 

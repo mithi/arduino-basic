@@ -7,7 +7,6 @@ AnalogLED led;
 
 int f1 = 3000;
 int f2 = 4500;
-int f = 0;
 
 void setup() {
   sweeper.New(f1, f2, BACKANDFORTH); 
@@ -15,8 +14,7 @@ void setup() {
 }
 
 void loop() {
-  f = sweeper.Update(1); 
-  buzzer.Play(f, 4, 2);
+  buzzer.Play(sweeper.Next(1), 4, 2);
 }
 
 /*

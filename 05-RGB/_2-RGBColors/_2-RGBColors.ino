@@ -17,7 +17,7 @@ void loop() {
 }
 
 void colors(){
-  int x = sweeper.Update(interval.IsTimeToUpdate());
+  int x = sweeper.Next(interval.Tick());
   rgb.Color(x);
 }
 

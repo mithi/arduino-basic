@@ -21,14 +21,14 @@ void setup() {
   toggler.New(0, maxSweepType, NORMAL);
   buzzer.New(13, 1.3, 1000);
   button.New(0, 50);
-  rgb.New(5, 10, 9);
+  rgb.New(6, 10, 9);
   
   rgb.ColorRaw(0,0,0);
 }
 
 void loop() {
   
-  f = sweeper.Update(1); 
+  f = sweeper.Next(1); 
  
   buzzer.Play(f, dwell, pause);
   
@@ -56,7 +56,7 @@ void nextColor(int brightness){
 
 void processSweep(){
   
-    mode = toggler.Update(1);
+    mode = toggler.Next(1);
     rgb.ColorRaw(0,0,0);
     nextSweep(mode);
 }

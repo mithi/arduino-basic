@@ -12,6 +12,6 @@ void setup() {
 
 void loop() {
   
-  if(toggleTiming.IsTimeToUpdate())
+  if(toggleTiming.Tick())
     relay.Toggle();
 }

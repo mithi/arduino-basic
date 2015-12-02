@@ -3,21 +3,21 @@
 
 int ledPins[] = {11,10,9,6,5,3};
 
-TimingManager ledsTiming;
-SequenceStateUpdater sequence;
+TimingManager timing;
+Sequencer sequence;
 LedsManager leds;
 
 void setup() {
   
-  ledsTiming.New(100);
+  timing.New(100);
   leds.New(ledPins);
   sequence.New(&leds);
 
-  sequence.Start(STAIRSDOWN);
+  sequence.Start(STAIRS);
 }
 
 void loop() {
   
-  sequence.Update(ledsTiming.IsTimeToUpdate());
+  sequence.Update(timing.Tick());
 }
 

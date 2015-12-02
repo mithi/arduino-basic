@@ -3,6 +3,7 @@
 
 Sweeper sweeper; 
 Buzzer buzzer;
+const int DELAY = 700;
 
 void setup() {
   
@@ -18,10 +19,11 @@ void loop() {
 void alarm(int startFrequency, int amplitude){
   
   const float coeff= 3.1412 / 180; // to convert degrees to radians 
-  float sineValue = sin(coeff*sweeper.Update(1));
+  float sineValue = sin(coeff*sweeper.Next(1));
   int toneValue = startFrequency + int(sineValue*amplitude);
  
   buzzer.Pitch(toneValue);
+  delayMicroseconds(DELAY);
 }
 
 /*
@@ -35,6 +37,8 @@ void alarm(int startFrequency, int amplitude){
  * 2000 500
  * 2000 1500
  * 2000 2500
+ * 
+ * Also try DELAY = 700, 1000, 2000
  * 
  */
 

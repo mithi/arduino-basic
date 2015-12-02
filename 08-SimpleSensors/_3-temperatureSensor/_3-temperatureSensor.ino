@@ -2,35 +2,31 @@
 #include "SimpleLibrary.h"
 
 AnalogSensor TemperatureSensor; 
-TimingManager TemperatureSensorTiming;
+TimingManager timing;
 
 void setup() {
   
   TemperatureSensor.New(A5, INPUT, 500, LOW, 5/10.24, -1); 
-  TemperatureSensorTiming.New(1000);
+  timing.New(1000);
   
   Serial.begin(9600);
 }
 
 void loop() {
   
-  if(TemperatureSensorTiming.IsTimeToUpdate()){
-  
-    Serial.println("Temperature Sensor!");
-  
-    Serial.print("Raw Value:");
-    Serial.println(TemperatureSensor.RawValue());
-  
-    Serial.print("Processed Value:");
-    Serial.println(TemperatureSensor.ProcessedValue());
-  
-    Serial.print("Mapped Value:");
-    Serial.println(TemperatureSensor.MappedRawValue(0, 512));
-  
-    Serial.print("Is True:");
-    Serial.println(TemperatureSensor.IsTrue());
+  if(timing.Tick()){
     
-    Serial.println(" ");
+    Serial.print("Processed Value:");
+    Serial.print(TemperatureSensor.ProcessedValue());
+
+    Serial.print("\t Raw Value:");
+    Serial.print(TemperatureSensor.RawValue());
+    
+    Serial.print("\t Mapped Value:");
+    Serial.print(TemperatureSensor.MappedRawValue(0, 512));
+  
+    Serial.print("\t Is True:");
+    Serial.println(TemperatureSensor.IsTrue());    
   }
 }
 

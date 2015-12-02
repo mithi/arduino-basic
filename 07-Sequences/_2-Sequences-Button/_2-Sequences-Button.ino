@@ -2,19 +2,21 @@
 #include "SimpleLibrary.h"
 
 Button button;
+Sweeper toggler;
 
-TimingManager ledsTiming;
-SequenceStateUpdater sequence;
+TimingManager timing;
+Sequencer sequence;
 LedsManager leds;
-byte sequenceType;
 
 int ledPins[] = {11,10,9,6,5,3};
+byte sequenceType;
 
 void setup() {
   
   button.New(0, 50);
-
-  ledsTiming.New(100);
+  toggler.New(0, 5, NORMAL);
+  
+  timing.New(100);
   leds.New(ledPins);
   sequence.New(&leds);
   
@@ -23,21 +25,10 @@ void setup() {
 
 void loop() {
 
+  sequence.Update(timing.Tick());
   button.Update();
   
   if(button.JustReleased())
-    nextSequence();
-
-  sequence.Update(ledsTiming.IsTimeToUpdate());
-}
-
-byte nextSequence(){
-  
-  sequenceType++;
-    
-  if(sequenceType > 5 )
-    sequenceType = 0;
-  
-  sequence.Start(sequenceType);  
+    sequence.Start(toggler.Next(1));
 }
 

@@ -14,7 +14,7 @@ void setup(){
 }
 
 void loop(){
-  int x = toggler.Update(timing.IsTimeToUpdate());  
-  x % 2 == 0 ? SSD.Display(x/2) :SSD.Display(OFF); 
+  int x = toggler.Next(timing.Tick());  
+  x % 2 == 0 ? SSD.Display(x/2) : SSD.Display(OFF); 
 }
 

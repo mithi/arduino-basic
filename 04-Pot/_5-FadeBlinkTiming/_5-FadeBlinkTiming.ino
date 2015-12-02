@@ -28,7 +28,7 @@ void potControl(){
   if (currentValue != lastValue)
     changeTiming();
 
-  if (blinkTime.IsTimeToUpdate()){
+  if (blinkTime.Tick()){
     state == HIGH ? led.NewBrightness(pot2.MappedValue(0, 255)) : led.NewBrightness(0);
     state = !state;
   }   

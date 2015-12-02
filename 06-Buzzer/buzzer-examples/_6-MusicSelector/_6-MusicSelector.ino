@@ -12,8 +12,8 @@ int m = 0;
 const int tuneCount = 2;
 
 int *currentTune;
-int *currentTuneTempo;
-int currentTuneSize; 
+byte *currentTuneTempo;
+byte currentTuneSize; 
 
 void setup() {
   
@@ -38,12 +38,12 @@ void loop() {
   
   buzzer.PlayNote(*(currentTune+x), float(*(currentTuneTempo+x)));
   
-  x = sweeper.Update(1);
+  x = sweeper.Next(1);
 }
 
 void nextMusic(){
   
-  m = toggler.Update(1);
+  m = toggler.Next(1);
   
   if (m == 0){
     currentTune = underworldTune;

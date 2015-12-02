@@ -6,12 +6,12 @@ TimingManager interval;
 
 void setup() {
   interval.New(250);
-  led.New(9);
+  led.New(11);
 }
 
 
 void loop() {
-  if(interval.IsTimeToUpdate())
+  if(interval.Tick())
     led.Toggle();
 }
 

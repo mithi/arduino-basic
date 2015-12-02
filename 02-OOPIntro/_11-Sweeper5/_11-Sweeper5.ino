@@ -6,12 +6,12 @@ AnalogLED led;
 TimingManager interval;
 
 void setup(){
-  led.New(9);
+  led.New(11);
   interval.New(10);
   sweeper.New(0, 100, BACKANDFORTH);
 }
 
 void loop(){
- led.NewBrightness(sweeper.Update(interval.IsTimeToUpdate()));
+ led.NewBrightness(sweeper.Next(interval.Tick()));
 }
 

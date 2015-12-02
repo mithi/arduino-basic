@@ -9,8 +9,8 @@ Button button;
 int x = 0;
 
 int *currentSong;
-int *currentSongTempo;
-int currentSongSize; 
+byte *currentSongTempo;
+byte currentSongSize; 
 
 void setup() {
   
@@ -26,6 +26,6 @@ void setup() {
 void loop() {
 
   buzzer.PlayNote(*(currentSong+x), float(*(currentSongTempo+x)));
-  x = sweeper.Update(1);
+  x = sweeper.Next(1);
 }
 

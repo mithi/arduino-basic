@@ -11,8 +11,8 @@ void setup() {
   interval[1].New(2*DELAY);
   interval[2].New(4*DELAY);
 
-  led[0].New(9);
-  led[1].New(10);
+  led[0].New(3);
+  led[1].New(9);
   led[2].New(11);
 }
 
@@ -24,7 +24,7 @@ void loop() {
 void updateLeds(){
 
   for(int x=0; x<3; x++){
-    if(interval[x].IsTimeToUpdate())
+    if(interval[x].Tick())
       led[x].Toggle();
   }
 }

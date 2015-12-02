@@ -25,7 +25,7 @@ void potControl(){
   if (currentValue != lastValue)
     changeTiming();
 
-  if (blinkTime.IsTimeToUpdate())
+  if (blinkTime.Tick())
     led.Toggle();
 }
 

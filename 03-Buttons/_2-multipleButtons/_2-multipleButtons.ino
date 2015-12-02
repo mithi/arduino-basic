@@ -34,11 +34,12 @@ void loop() {
 
 void doLEDSequence(){
   while(button[3].Pressed()){ //all other buttons are disabled unless button[3] is released
-    int x = sweeper.Update(ledsTiming.IsTimeToUpdate());
+    int x = sweeper.Next(ledsTiming.Tick());
     ledsOff();
     led[x].TurnOn();
     button[3].Update();
   }
+  ledsOff();
 }
 
 void updateButtons(){

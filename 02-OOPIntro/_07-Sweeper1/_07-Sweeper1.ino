@@ -9,7 +9,7 @@ void setup(){
 }
 
 void loop(){
-  Serial.print(sweeper.Update(1));
+  Serial.print(sweeper.Next(1));
   delay(250);
 }
 

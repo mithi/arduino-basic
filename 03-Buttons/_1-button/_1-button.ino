@@ -6,7 +6,7 @@ DigitalLED led;
 
 void setup() {
   button.New(0, 50);
-  led.New(10);
+  led.New(11);
 }
 
 void loop() {

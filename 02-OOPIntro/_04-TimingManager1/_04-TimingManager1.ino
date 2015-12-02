@@ -10,7 +10,7 @@ void setup() {
 
 
 void loop() {
-  if(interval.IsTimeToUpdate())
+  if(interval.Tick())
     Serial.println("hey!");
 }
 

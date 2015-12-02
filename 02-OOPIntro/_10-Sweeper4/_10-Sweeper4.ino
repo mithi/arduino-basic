@@ -7,7 +7,7 @@ int oldx = 0;
 
 void setup(){
   sweeper.New(4, 0, BACKANDFORTH);
-  interval.New(50);
+  interval.New(100);
   Serial.begin(9600);
 }
 
@@ -17,13 +17,13 @@ void loop(){
 
 void sweep(){
   
-  x = sweeper.Update(interval.IsTimeToUpdate()));
+  int x = sweeper.Next(interval.Tick());
 
   if(x == oldx){
     Serial.print(x);
   }else{
     Serial.println("NEXT NUMBER!");
-    x = oldx;
+    oldx = x;
   }
 }
 

@@ -4,8 +4,8 @@
 int ledPins[] = {11,10,9,6,5,3};
 
 byte sequenceType;
-TimingManager ledsTiming;
-SequenceStateUpdater sequence;
+TimingManager timing;
+Sequencer sequence;
 LedsManager leds;
 
 Button button;
@@ -14,11 +14,11 @@ Potentiometer pot2;
 
 void setup() {
   
-  pot1.New(A0);
-  pot2.New(A1);
+  pot1.New(A5);
+  pot2.New(A4);
   button.New(0, 50);
   
-  ledsTiming.New(100);
+  timing.New(100);
   leds.New(ledPins);
   sequence.New(&leds);
   
@@ -32,10 +32,10 @@ void loop() {
   if(button.JustReleased())
     nextSequence();
     
-  ledsTiming.NewChangeTime(pot1.MappedValue(50,300));
+  timing.NewInterval(pot1.MappedValue(50,300));
   leds.NewBrightness(pot2.MappedValue(0, 255));
 
-  sequence.Update(ledsTiming.IsTimeToUpdate());
+  sequence.Update(timing.Tick());
 }
 
 byte nextSequence(){

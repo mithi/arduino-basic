@@ -18,7 +18,7 @@ void loop() {
 }
 
 void blinkingColors(){
-  int x = sweeper.Update(interval.IsTimeToUpdate());
+  int x = sweeper.Next(interval.Tick());
   int r = x % 2;
   x /= 2;
   

@@ -15,7 +15,7 @@ void loop(){
 }
 
 void sweep(){
-  if (interval.IsTimeToUpdate())
-    Serial.println(sweeper.Update(1));
+  if (interval.Tick())
+    Serial.print(sweeper.Next(1));
 }
 
