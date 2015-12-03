@@ -10,7 +10,7 @@ int pins[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 void setup(){
   timing.New(500);
   toggler.New(0, 21, BACKANDFORTH);
-  SSD.New(pins, COMMONANODE ); 
+  SSD.New(pins, COMMONANODE); 
 }
 
 void loop(){
