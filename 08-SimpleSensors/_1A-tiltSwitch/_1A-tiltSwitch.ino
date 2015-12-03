@@ -31,6 +31,5 @@ void loop() {
 
 void tilt(){
   tilted = 1;   
-
 }
 
