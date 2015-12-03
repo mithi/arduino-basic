@@ -32,6 +32,7 @@ void loop() {
   }
 
   if(tilted){
+    
     Serial.println("tilt Switch has tilted!");
     tilted = 0;  
   }
@@ -39,7 +40,9 @@ void loop() {
 
 void tilt(){
   unsigned long mil = millis();
+  
   if (mil - lastTilt > thresh){
+    
     lastTilt = mil;
     tiltCount++;
     tilted = 1;
