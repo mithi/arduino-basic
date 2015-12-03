@@ -7,6 +7,18 @@
 
 #include "SimpleLibraryConstants.h"
 
+class Relay{
+  int _pin;
+  bool _state;  
+  public:
+  void New(int p);
+  void SwitchDefault();  //Default == LOW, Power == HIGH
+  void SwitchPower();
+  void Set(bool s);
+  void Toggle();
+  bool State();
+};
+
 class AnalogLED{
   int _pin;
   int _brightness;
@@ -77,18 +89,6 @@ class AnalogSensor{
   float ProcessedValue();
   int RawValue();
   int MappedRawValue(int mn, int mx);
-};
-
-class Relay{
-  int _pin;
-  bool _state;  
-  public:
-  void New(int p);
-  void SwitchDefault();  //Default == LOW, Power == HIGH
-  void SwitchPower();
-  void Set(bool s);
-  void Toggle();
-  bool State();
 };
 
 class Buzzer{
