@@ -8,6 +8,37 @@
 #include "SimpleLibrary.h"
 
 /**********************************
+ * RELAY
+ **********************************/
+
+void Relay::New(int p){
+  _pin = p;
+  pinMode(_pin , OUTPUT);  // DEFAULT = LOW POWER = HIGH
+  Set(LOW);
+}
+
+void Relay::SwitchDefault(){
+  Set(LOW);
+}
+
+void Relay::SwitchPower(){
+  Set(HIGH);
+}
+
+void Relay::Toggle(){
+  Set(!_state);
+}
+
+void Relay::Set(bool s){
+  _state = s;
+  digitalWrite(_pin, _state);
+}
+
+bool Relay::State(){
+  return _state;
+}
+
+/**********************************
  * ANALOG LED 
  **********************************/
 
@@ -183,37 +214,6 @@ int AnalogSensor::RawValue(){
   
 int AnalogSensor::MappedRawValue(int mn, int mx){
   return map(RawValue(), 0, 1023, mn, mx);
-}
-
-/**********************************
- * RELAY
- **********************************/
-
-void Relay::New(int p){
-  _pin = p;
-  pinMode(_pin , OUTPUT);  // DEFAULT = LOW POWER = HIGH
-  Set(LOW);
-}
-
-void Relay::SwitchDefault(){
-  Set(LOW);
-}
-
-void Relay::SwitchPower(){
-  Set(HIGH);
-}
-
-void Relay::Toggle(){
-  Set(!_state);
-}
-
-void Relay::Set(bool s){
-  _state = s;
-  digitalWrite(_pin, _state);
-}
-
-bool Relay::State(){
-  return _state;
 }
 
 /**********************************
