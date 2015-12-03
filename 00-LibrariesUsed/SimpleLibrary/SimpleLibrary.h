@@ -19,15 +19,6 @@ class Relay{
   bool State();
 };
 
-class AnalogLED{
-  int _pin;
-  int _brightness;
-  public:
-  void New(int p);
-  void NewBrightness(int b);
-  int Brightness();
-};
-
 class DigitalLED{
   int _pin;
   bool _state; 
@@ -38,6 +29,15 @@ class DigitalLED{
   void TurnOff();
   void Toggle();
   bool IsOn();
+};
+
+class AnalogLED{
+  int _pin;
+  int _brightness;
+  public:
+  void New(int p);
+  void NewBrightness(int b);
+  int Brightness();
 };
 
 class Potentiometer{
