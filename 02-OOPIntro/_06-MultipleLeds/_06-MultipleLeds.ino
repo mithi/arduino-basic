@@ -3,9 +3,13 @@
 
 DigitalLED led[3];
 TimingManager interval[3];
+Sweeper toggler;
 const int DELAY = 250;
+int x;
 
 void setup() {
+  
+  toggler.New(0, 2, NORMAL);
   
   interval[0].New(DELAY);
   interval[1].New(2*DELAY);
@@ -18,14 +22,8 @@ void setup() {
 
 
 void loop() {
-  updateLeds();
-}
-
-void updateLeds(){
-
-  for(int x=0; x<3; x++){
-    if(interval[x].Tick())
-      led[x].Toggle();
-  }
+  x = toggler.Next(1);
+  if(interval[x].Tick())
+    led[x].Toggle();
 }
 
