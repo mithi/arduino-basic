@@ -13,11 +13,7 @@ void setup() {
 }
 
 void loop() {
-  colors();
+  rgb.Color(sweeper.Next(interval.Tick()));
 }
 
-void colors(){
-  int x = sweeper.Next(interval.Tick());
-  rgb.Color(x);
-}
 
