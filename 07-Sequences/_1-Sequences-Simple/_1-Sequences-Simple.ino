@@ -2,14 +2,13 @@
 #include "SimpleLibrary.h"
 
 int ledPins[] = {11,10,9,6,5,3};
-
-TimingManager timing;
+Metronome metronome;
 Sequencer sequence;
 LedsManager leds;
 
 void setup() {
   
-  timing.New(100);
+  metronome.New(100);
   leds.New(ledPins);
   sequence.New(&leds);
 
@@ -18,6 +17,6 @@ void setup() {
 
 void loop() {
   
-  sequence.Update(timing.Tick());
+  sequence.Update(metronome.Tick());
 }
 

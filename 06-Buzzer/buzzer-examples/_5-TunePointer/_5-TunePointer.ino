@@ -20,7 +20,7 @@ void setup() {
   currentSongTempo = superMarioTuneTempo; 
   currentSongSize = superMarioTuneSize;
   
-  sweeper.New(0, currentSongSize, NORMAL);
+  sweeper.New(0, currentSongSize, 1, NORMAL);
 }
 
 void loop() {

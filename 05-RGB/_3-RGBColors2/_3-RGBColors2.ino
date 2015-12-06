@@ -3,14 +3,14 @@
 
 RGB rgb;
 Sweeper sweeper;
-TimingManager interval;
+Metronome metronome;
 
 int maxCount = 24; // max color constant value times two
 
 void setup() {
   rgb.New(11,10,9);
-  sweeper.New(0, maxCount, NORMAL);
-  interval.New(500);
+  sweeper.New(0, maxCount, 1, NORMAL);
+  metronome.New(500);
 }
 
 void loop() {
@@ -18,7 +18,7 @@ void loop() {
 }
 
 void blinkingColors(){
-  int x = sweeper.Next(interval.Tick());
+  int x = sweeper.Next(metronome.Tick());
   int r = x % 2;
   x /= 2;
   

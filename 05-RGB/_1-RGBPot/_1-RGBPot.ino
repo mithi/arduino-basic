@@ -2,7 +2,7 @@
 #include "SimpleLibrary.h"
 
 RGB rgb;
-Potentiometer rPot, gPot, bPot;
+AnalogInput rPot, gPot, bPot;
 int x = 250; //maxbrightness
 
 void setup() {

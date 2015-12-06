@@ -2,23 +2,22 @@
 #include "SimpleLibrary.h"
 
 Button button;
-Potentiometer pot;
+AnalogInput pot;
 Sweeper toggler;
 
-TimingManager timing;
+Metronome metronome;
 Sequencer sequence;
 LedsManager leds;
 
 int ledPins[] = {11,10,9,6,5,3};
-byte sequenceType;
 
 void setup() {
   
   pot.New(A5);
   button.New(0, 50);
-  toggler.New(0, 5, NORMAL);
+  toggler.New(0, 5, 1, NORMAL);
   
-  timing.New(100);
+  metronome.New(100);
   leds.New(ledPins);
   sequence.New(&leds);
   
@@ -27,10 +26,8 @@ void setup() {
 
 void loop() {
 
-  sequence.Update(timing.Tick());
-  button.Update();
-
-  timing.NewInterval(pot.MappedValue(50,300));
+  sequence.Update(metronome.Tick());
+  metronome.NewInterval(pot.MappedValue(50,300));
   
   if(button.JustReleased())
     sequence.Start(toggler.Next(1));

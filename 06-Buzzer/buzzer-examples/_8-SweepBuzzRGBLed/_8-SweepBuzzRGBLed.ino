@@ -17,11 +17,11 @@ int f = 0;
 
 void setup() {
   
-  sweeper.New(f1, f2, BACKANDFORTH); 
-  toggler.New(0, maxSweepType, NORMAL);
+  sweeper.New(f1, f2, 1, BACKANDFORTH); 
+  toggler.New(0, maxSweepType, 1, NORMAL);
   buzzer.New(13, 1.3, 1000);
   button.New(0, 50);
-  rgb.New(6, 10, 9);
+  rgb.New(5, 6, 9);
   
   rgb.ColorRaw(0,0,0);
 }
@@ -29,13 +29,9 @@ void setup() {
 void loop() {
   
   f = sweeper.Next(1); 
- 
   buzzer.Play(f, dwell, pause);
-  
-  nextColor(map(f, f1, f2, 0, 50));
-  
-  button.Update();
-  
+  nextColor(map(f, f1, f2, 0, 150));
+    
   if (button.JustPressed())
     processSweep();
 }
@@ -51,7 +47,6 @@ void nextColor(int brightness){
 
   if(mode == 2)
     rgb.Blue(brightness);
-
 }
 
 void processSweep(){
@@ -64,12 +59,12 @@ void processSweep(){
 void nextSweep(int c){
   
   if(c == 0)
-    sweeper.New(f1, f2, BACKANDFORTH);
+    sweeper.New(f1, f2, 1, BACKANDFORTH);
  
   if(c == 1)
-    sweeper.New(f1, f2, NORMAL);
+    sweeper.New(f1, f2, 1,NORMAL);
   
   if(c == 2)
-    sweeper.New(f2, f1, NORMAL);
+    sweeper.New(f2, f1, 1, NORMAL);
 }
 

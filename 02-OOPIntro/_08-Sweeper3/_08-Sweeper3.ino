@@ -2,12 +2,12 @@
 #include "SimpleLibrary.h"
 
 Sweeper sweeper;
-TimingManager interval;
+Metronome metronome;
 
 void setup(){
-  sweeper.New(4, 0, BACKANDFORTH);
-  interval.New(500);
-  Serial.begin(9600);
+  sweeper.New(8, 0, 2, BACKANDFORTH);
+  metronome.New(250);
+  Serial.begin(115200);
 }
 
 void loop(){
@@ -15,7 +15,7 @@ void loop(){
 }
 
 void sweep(){
-  if (interval.Tick())
+  if (metronome.Tick())
     Serial.print(sweeper.Next(1));
 }
 

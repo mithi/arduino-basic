@@ -3,14 +3,13 @@
 
 int ledPins[] = {11,10,9,6,5,3};
 
-byte sequenceType;
-TimingManager timing;
+Sweeper toggler;
+Metronome metronome;
 Sequencer sequence;
 LedsManager leds;
 
 Button button;
-Potentiometer pot1;
-Potentiometer pot2;
+AnalogInput pot1, pot2;
 
 void setup() {
   
@@ -18,8 +17,9 @@ void setup() {
   pot2.New(A4);
   button.New(0, 50);
   
-  timing.New(100);
+  metronome.New(100);
   leds.New(ledPins);
+  toggler.New(0, 5, 1, NORMAL); 
   sequence.New(&leds);
   
   sequence.Start(STAIRSUP);
@@ -27,24 +27,12 @@ void setup() {
 
 void loop() {
 
-  button.Update();
-
   if(button.JustReleased())
-    nextSequence();
+      sequence.Start(toggler.Next(1));  
     
-  timing.NewInterval(pot1.MappedValue(50,300));
+  metronome.NewInterval(pot1.MappedValue(50,300));
   leds.NewBrightness(pot2.MappedValue(0, 255));
 
-  sequence.Update(timing.Tick());
-}
-
-byte nextSequence(){
-  
-  sequenceType++;
-  
-  if(sequenceType > 5 )
-    sequenceType = 0;
-  
-  sequence.Start(sequenceType);  
+  sequence.Update(metronome.Tick());
 }
 

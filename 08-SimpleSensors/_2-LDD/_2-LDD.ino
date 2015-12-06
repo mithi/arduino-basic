@@ -2,18 +2,18 @@
 #include "SimpleLibrary.h"
 
 AnalogSensor LDD; 
-TimingManager LDDTiming;
+Metronome metronome;
 
 void setup() {
   
   LDD.New(A5, INPUT_PULLUP, 700, HIGH, 1, 0); 
-  LDDTiming.New(1000);
-  Serial.begin(9600);
+  metronome.New(1000);
+  Serial.begin(115200);
 }
 
 void loop() {
   
-  if(LDDTiming.Tick()){
+  if(metronome.Tick()){
         
     Serial.print("Raw Value:");
     Serial.print(LDD.RawValue());

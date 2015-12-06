@@ -4,12 +4,12 @@
 const int numberOfLeds = 6;
 const int numberOfButtons = 4;
 
-DigitalLED led[numberOfLeds];
+DigitalOutput led[numberOfLeds];
 Button button[numberOfButtons]; 
 int ledPin[numberOfLeds] = {11,10,9,6,5,3};
 int buttonPin[numberOfButtons] = {0, 1, 2, 4};
 
-TimingManager ledsTiming;
+Metronome metronome;
 Sweeper sweeper;
 
 void setup() {
@@ -18,9 +18,7 @@ void setup() {
 
 void loop() {
 
-  updateButtons();
-
-  button[0].Pressed() ? led[0].TurnOn() : led[0].TurnOff();
+  button[0].Pressed() ? led[0].On() : led[0].Off();
   
   if(button[1].JustReleased())
     led[1].Toggle();
@@ -34,22 +32,16 @@ void loop() {
 
 void doLEDSequence(){
   while(button[3].Pressed()){ //all other buttons are disabled unless button[3] is released
-    int x = sweeper.Next(ledsTiming.Tick());
+    int x = sweeper.Next(metronome.Tick());
     ledsOff();
-    led[x].TurnOn();
-    button[3].Update();
+    led[x].On();
   }
   ledsOff();
 }
 
-void updateButtons(){
-  for(int x=0; x<numberOfButtons; x++)
-    button[x].Update();  
-}
-
 void ledsOff(){
   for(int x=0; x<numberOfLeds; x++)
-    led[x].TurnOff(); 
+    led[x].Off(); 
 }
 
 void initializeObjects(){
@@ -60,7 +52,7 @@ void initializeObjects(){
   for(int x=0; x<numberOfLeds; x++)
     led[x].New(ledPin[x]);  
 
-  ledsTiming.New(50);
-  sweeper.New(0,numberOfLeds-1, BACKANDFORTH);
+  metronome.New(50);
+  sweeper.New(0,numberOfLeds-1, 1, BACKANDFORTH);
 }
 

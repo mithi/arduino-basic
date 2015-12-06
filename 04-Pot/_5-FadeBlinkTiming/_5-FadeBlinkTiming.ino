@@ -1,12 +1,9 @@
 
 #include "SimpleLibrary.h"
 
-Potentiometer pot1, pot2; 
-AnalogLED led;
-TimingManager blinkTime;
-
-int lastValue = 0;
-int currentValue;
+AnalogInput pot1, pot2; 
+AnalogOutput led;
+Metronome metronome;
 bool state = 0;
 
 void setup() {
@@ -17,31 +14,11 @@ void setup() {
 }
 
 void loop() {
-  
-  potControl();
-}
+   
+  metronome.NewInterval(pot1.RawValue());
 
-void potControl(){
-  
-  currentValue = pot1.RawValue();
-  
-  if (currentValue != lastValue)
-    changeTiming();
-
-  if (blinkTime.Tick()){
-    state == HIGH ? led.NewBrightness(pot2.MappedValue(0, 255)) : led.NewBrightness(0);
+  if (metronome.Tick()){
+    state == HIGH ? led.Set(pot2.MappedValue(0, 255)) : led.Set(0);
     state = !state;
-  }   
-}
-
-void changeTiming(){
-  
-  int threshold = 50;
-  
-  if( abs(currentValue - lastValue) > threshold){ 
-    blinkTime.New(currentValue);
-    lastValue = currentValue;
   }
 }
-
-

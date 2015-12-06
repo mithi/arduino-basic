@@ -2,7 +2,7 @@
 #include "SimpleLibrary.h"
 
 Button button;
-DigitalLED led;
+DigitalOutput led;
 
 void setup() {
   button.New(0, 50);
@@ -10,8 +10,7 @@ void setup() {
 }
 
 void loop() {
-  button.Update();
-  button.Pressed() ? led.TurnOn() : led.TurnOff(); 
+  button.Pressed() ? led.On() : led.Off(); 
 }
 
 // try !button.Pressed()

@@ -3,17 +3,15 @@
 #include <Servo.h>
 
 Servo servo;
-Sweeper sweeper;
-TimingManager timing; 
+AnalogInput pot;
 
 void setup() {
   servo.attach(9);
-  sweeper.New(0, 180, BACKANDFORTH);
-  timing.New(5);
+  pot.New(A5);
 }
 
 void loop() {
-  servo.write(sweeper.Next(timing.Tick()));
+  servo.write(pot.MappedValue(0,180));
+  delay(10);
 }
-
 

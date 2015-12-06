@@ -3,18 +3,18 @@
 
 Sweeper sweeper; 
 Buzzer buzzer;
-AnalogLED led;
+AnalogOutput led;
 
 int f1 = 3000;
 int f2 = 4500;
 
 void setup() {
-  sweeper.New(f1, f2, BACKANDFORTH); 
+  sweeper.New(f1, f2, 1, BACKANDFORTH); 
   buzzer.New(13, 1.3, 1000);
 }
 
 void loop() {
-  buzzer.Play(sweeper.Next(1), 4, 2);
+  buzzer.Play(sweeper.Next(1), 3, 1);
 }
 
 /*
@@ -22,8 +22,8 @@ void loop() {
  *  sweeper.New(f2, f1, NORMAL);
  *  change f1 and f2 to f1 = 500 f2 =100 or something else
  *  try buzzer.Play(f, 3, 1); 
- *  buzzer.Play(f, soundPeriod = 3, Pause = 1); int milliseconds
- *  
+ *  buzzer.Play(f, soundPeriod = 4, pause = 2); in milliseconds
+ * 
  */
  
 

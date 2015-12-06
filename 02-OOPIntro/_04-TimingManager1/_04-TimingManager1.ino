@@ -1,16 +1,16 @@
 
 #include "SimpleLibrary.h"
 
-TimingManager interval;
+Metronome metronome;
 
 void setup() {
-  interval.New(500);
-  Serial.begin(9600);
+  metronome.New(500);
+  Serial.begin(115200);
 }
 
 
 void loop() {
-  if(interval.Tick())
+  if(metronome.Tick())
     Serial.println("hey!");
 }
 

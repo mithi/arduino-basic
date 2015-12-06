@@ -2,19 +2,19 @@
 #include "SimpleLibrary.h"
 
 AnalogSensor TemperatureSensor; 
-TimingManager timing;
+Metronome metronome;
 
 void setup() {
   
   TemperatureSensor.New(A5, INPUT, 500, LOW, 5/10.24, -1); 
-  timing.New(1000);
+  metronome.New(1000);
   
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 void loop() {
   
-  if(timing.Tick()){
+  if(metronome.Tick()){
     
     Serial.print("Processed Value:");
     Serial.print(TemperatureSensor.ProcessedValue());

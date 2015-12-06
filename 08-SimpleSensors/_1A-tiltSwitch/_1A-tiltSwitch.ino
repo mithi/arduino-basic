@@ -1,21 +1,21 @@
 
 #include "SimpleLibrary.h"
 
-TimingManager timing;
+Metronome metronome;
 DigitalSensor tiltSwitch;
 bool tilted = 0;
 
 void setup() {
 
   tiltSwitch.New(3, INPUT_PULLUP, HIGH);
-  timing.New(1000);
+  metronome.New(1000);
   attachInterrupt(digitalPinToInterrupt(tiltSwitch.Pin()), tilt, CHANGE);
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 void loop() {
 
-  if(timing.Tick()){
+  if(metronome.Tick()){
     
     Serial.print("Value:");    
     Serial.print(tiltSwitch.Value());

@@ -1,17 +1,17 @@
 
 #include "SimpleLibrary.h"
 
-DigitalLED led;
-TimingManager interval;
+DigitalOutput led;
+Metronome metronome;
 
 void setup() {
-  interval.New(250);
+  metronome.New(250);
   led.New(11);
 }
 
 
 void loop() {
-  if(interval.Tick())
+  if(metronome.Tick())
     led.Toggle();
 }
 

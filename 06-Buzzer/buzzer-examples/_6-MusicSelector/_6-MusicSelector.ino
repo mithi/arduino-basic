@@ -24,14 +24,12 @@ void setup() {
   currentTuneTempo = underworldTuneTempo; 
   currentTuneSize = underworldTuneSize;
 
-  sweeper.New(0, currentTuneSize, NORMAL);
-  toggler.New(0, tuneCount-1, NORMAL);
+  sweeper.New(0, currentTuneSize, 1, NORMAL);
+  toggler.New(0, tuneCount-1, 1, NORMAL);
 
 }
 
 void loop() {
-
-  button.Update();
 
   if(button.JustPressed())
     nextMusic();
@@ -57,6 +55,6 @@ void nextMusic(){
     currentTuneSize = superMarioTuneSize;
   }
   
-  sweeper.New(0, currentTuneSize, NORMAL);
+  sweeper.New(0, currentTuneSize-1, 1, NORMAL);
 }
 

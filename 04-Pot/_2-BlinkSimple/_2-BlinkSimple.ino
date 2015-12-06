@@ -1,7 +1,8 @@
+
 #include "SimpleLibrary.h"
 
-Potentiometer pot; 
-DigitalLED led;
+AnalogInput pot; 
+DigitalOutput led;
 
 void setup() {
   pot.New(A5);

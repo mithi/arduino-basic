@@ -1,8 +1,8 @@
 
 #include "SimpleLibrary.h"
 
-Potentiometer pot; 
-AnalogLED led;
+AnalogInput pot; 
+AnalogOutput led;
 
 void setup() {
   pot.New(A5);
@@ -10,7 +10,7 @@ void setup() {
 }
 
 void loop() {
-  led.NewBrightness(pot.MappedValue(0, 100));
+  led.Set(pot.MappedValue(0, 100));
 }
 
 
