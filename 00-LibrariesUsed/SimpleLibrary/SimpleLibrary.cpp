@@ -71,7 +71,7 @@ int AnalogInput::RawValue(){
 }
 
 int AnalogInput::MappedValue(int mn, int mx){
-  return map(RawValue(), 0, 1024, mn, mx);
+  return map(RawValue(), 0, 1023, mn, mx);
 }
 
 /**********************************
