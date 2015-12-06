@@ -70,7 +70,7 @@ int AnalogInput::RawValue(){
 }
 
 int AnalogInput::MappedValue(int mn, int mx){
-  return map(RawValue(), 0, 1024, mn, mx);
+  return map(RawValue(), 0, 1023, mn, mx);
 }
 
 /**********************************
@@ -152,23 +152,23 @@ void AnalogSensor::New(int p, int m, int t, bool i, float cm, float cb){
   _pin = p;
   _mode = m;
   _threshold = constrain(t, 0, 1023);
-  _coefficientM = cm;
-  _coefficientB = cb;
+  _M = cm;
+  _B = cb;
   pinMode(_pin, _mode);
 }
 
-void AnalogSensor::NewLinearCoefficient(float cm, float cb){
-  _coefficientM = cm;
-  _coefficientB = cb; 
+void AnalogSensor::SetConstants(float cm, float cb){
+  _M = cm;
+  _B = cb; 
 }
 
-void AnalogSensor::NewThreshold(int t, bool i){
+void AnalogSensor::SetThreshold(int t, bool i){
   _inverted = i;
   _threshold = t;
 }
 
 float AnalogSensor::ProcessedValue(){
-  return _coefficientM*RawValue() + _coefficientB;
+  return _M*RawValue() + _B;
 }
 
 bool AnalogSensor::IsTrue(){
@@ -406,7 +406,7 @@ void Metronome::New(unsigned long t){
   _currentTime = millis();
 }
 
-void Metronome::NewInterval(unsigned long t){
+void Metronome::SetInterval(unsigned long t){
   _interval= t;
 }
 
@@ -476,7 +476,7 @@ void LedsManager::New(int p[]){
   } 
 }
 
-void LedsManager::NewBrightness(int b){
+void LedsManager::SetBrightness(int b){
   _brightness = b;
 }
 

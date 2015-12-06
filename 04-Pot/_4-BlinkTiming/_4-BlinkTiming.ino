@@ -13,7 +13,7 @@ void setup() {
 
 void loop() {  
 
-  metronome.NewInterval(pot.RawValue());
+  metronome.SetInterval(pot.RawValue());
   
   if (metronome.Tick())
     led.Toggle();

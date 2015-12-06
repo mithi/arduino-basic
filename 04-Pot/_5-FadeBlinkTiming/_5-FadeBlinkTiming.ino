@@ -15,7 +15,7 @@ void setup() {
 
 void loop() {
    
-  metronome.NewInterval(pot1.RawValue());
+  metronome.SetInterval(pot1.RawValue());
 
   if (metronome.Tick()){
     state == HIGH ? led.Set(pot2.MappedValue(0, 255)) : led.Set(0);

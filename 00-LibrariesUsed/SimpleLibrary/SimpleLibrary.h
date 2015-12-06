@@ -67,12 +67,12 @@ class AnalogSensor{
   int _pin;
   int _mode;
   int _threshold;
-  float _coefficientM;
-  float _coefficientB;
+  float _M;
+  float _B;
   public:
   void New(int p, int m, int t, bool i, float cm, float cb);
-  void NewLinearCoefficient(float cm, float cb);
-  void NewThreshold(int t, bool i);
+  void SetConstants(float cm, float cb);
+  void SetThreshold(int t, bool i);
   bool IsTrue();
   float ProcessedValue();
   int RawValue();
@@ -156,7 +156,7 @@ class Metronome{
   public:
   void New(unsigned long t);
   bool Tick();
-  void NewInterval(unsigned long t);
+  void SetInterval(unsigned long t);
 };
 
 class LedsManager{
@@ -165,7 +165,7 @@ class LedsManager{
   int _count;
   public:
   void New(int p[]);
-  void NewBrightness(int b);
+  void SetBrightness(int b);
   byte Walks(byte state);
   byte WalksUp(byte state);
   byte WalksDown(byte state);

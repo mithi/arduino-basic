@@ -30,8 +30,8 @@ void loop() {
   if(button.JustReleased())
       sequence.Start(toggler.Next(1));  
     
-  metronome.NewInterval(pot1.MappedValue(50,300));
-  leds.NewBrightness(pot2.MappedValue(0, 255));
+  metronome.SetInterval(pot1.MappedValue(50,300));
+  leds.SetBrightness(pot2.MappedValue(0, 255));
 
   sequence.Update(metronome.Tick());
 }

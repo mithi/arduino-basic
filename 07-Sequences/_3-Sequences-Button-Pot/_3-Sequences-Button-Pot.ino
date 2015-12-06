@@ -27,7 +27,7 @@ void setup() {
 void loop() {
 
   sequence.Update(metronome.Tick());
-  metronome.NewInterval(pot.MappedValue(50,300));
+  metronome.SetInterval(pot.MappedValue(50,300));
   
   if(button.JustReleased())
     sequence.Start(toggler.Next(1));
