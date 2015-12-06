@@ -58,11 +58,11 @@ int AnalogOutput::State(){
 }
 
 /**********************************
- * ANALOG INPUT
+ * ANALOG INPUT!
  **********************************/
 
 void AnalogInput::New(int p){
-  _pin = p;
+  _pin = p; 
   pinMode(_pin, INPUT);
 }
 
