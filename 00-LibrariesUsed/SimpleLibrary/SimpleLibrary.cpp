@@ -63,6 +63,7 @@ int AnalogOutput::State(){
 
 void AnalogInput::New(int p){
   _pin = p;
+  pinMode(_pin, INPUT);
 }
 
 int AnalogInput::RawValue(){
