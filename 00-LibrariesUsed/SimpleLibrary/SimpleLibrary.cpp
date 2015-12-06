@@ -158,16 +158,6 @@ void AnalogSensor::New(int p, int m, int t, bool i, float cm, float cb){
   pinMode(_pin, _mode);
 }
 
-void AnalogSensor::SetConstants(float cm, float cb){
-  _M = cm;
-  _B = cb; 
-}
-
-void AnalogSensor::SetThreshold(int t, bool i){
-  _inverted = i;
-  _threshold = t;
-}
-
 float AnalogSensor::ProcessedValue(){
   return _M*RawValue() + _B;
 }

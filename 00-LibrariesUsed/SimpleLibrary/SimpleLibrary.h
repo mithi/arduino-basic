@@ -71,8 +71,6 @@ class AnalogSensor{
   float _B;
   public:
   void New(int p, int m, int t, bool i, float cm, float cb);
-  void SetConstants(float cm, float cb);
-  void SetThreshold(int t, bool i);
   bool IsTrue();
   float ProcessedValue();
   int RawValue();
