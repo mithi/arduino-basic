@@ -17,14 +17,14 @@ void setup(){
 
 void loop(){
     
-  if(buttonUp.JustReleased()){
-    toggler.Direction(FORWARD);
-    SSD.Display(toggler.Next(1));
-  }
+  if(buttonUp.JustReleased())
+    next(FORWARD);
   
-  if(buttonDown.JustReleased()){
-    toggler.Direction(REVERSE);
-    SSD.Display(toggler.Next(1));
-  }
+  if(buttonDown.JustReleased())
+    next(REVERSE);
 }
 
+void next(bool dir){
+  toggler.SetDirection(dir);
+  SSD.Display(toggler.Next(1));
+}

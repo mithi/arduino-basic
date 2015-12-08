@@ -140,11 +140,13 @@ class Sweeper{
   int Next(bool itsTime);
   unsigned long SweepsMade();
   void ToggleDirection();
-  void Direction(bool d);
+  void SetDirection(bool d);
   private:
   void _forward();
   void _reverse();
   void _backAndForth();
+  void _backAndForthHelperForward();
+  void _backAndForthHelperReverse();
 };
 
 class Metronome{

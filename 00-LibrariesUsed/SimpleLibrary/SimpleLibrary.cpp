@@ -339,7 +339,7 @@ unsigned long Sweeper::SweepsMade(){
   return _type == NORMAL ? _sweepsMade : _sweepsMade / 2;
 }
 
-void Sweeper::Direction(bool d){
+void Sweeper::SetDirection(bool d){
   _dir = d;
 }
 
@@ -364,28 +364,33 @@ void Sweeper::_reverse(){
 }
 
 void Sweeper::_backAndForth(){
-  if (_dir == FORWARD){
-    
-    if(_state < _end){
-      _state+=_step;
+  
+  _dir == FORWARD ? _backAndForthHelperForward() : _backAndForthHelperReverse();
+}
 
-    }else{
-      _dir = REVERSE;
-      _state-=_step;
-      _sweepsMade++;
-    }
+void Sweeper::_backAndForthHelperForward(){
 
-  }else{ //reverse
-    
-    if(_state > _start){
-      _state-=_step;
-    }else{
-      _dir = FORWARD;
-      _state+=_step;
-      _sweepsMade++;
-    }
+  if(_state < _end){
+    _state+=_step;
+
+  }else{
+    _dir = REVERSE;
+    _state-=_step;
+    _sweepsMade++;
   }
 }
+
+void Sweeper::_backAndForthHelperReverse(){
+
+  if(_state > _start){
+    _state-=_step;
+  }else{
+    _dir = FORWARD;
+    _state+=_step;
+    _sweepsMade++;
+  }
+}
+
 
 /*****************************************************
  *  TIMING MANAGER
