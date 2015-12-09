@@ -18,7 +18,7 @@ void loop() {
 void walkLEDs() {
   for (int x = 0; x < 6; x++) {
     offLeds();
-    x % 2 == 0 ? blinkLed(x) : Sweep(x);;
+    x % 2 == 0 ? blinkLed(x) : Sweep(x);
   }
 }
 
