@@ -1,28 +1,30 @@
 
 const int ledPin = 11;
 const int maxBrightness = 150;
+const int delta = 1;
+const int msDelay = 5;
 
 void setup() {
   pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  SweepUp(ledPin, 5, 30);
-  SweepDown(ledPin, 5, 30);
-  delay(500);
+  SweepUp(ledPin);
+  SweepDown(ledPin);
+  delay(400);
 }
 
-void SweepUp(int pin, int fadeAmount, int waitTime){
-  for(int brightness = 0; brightness <= maxBrightness; brightness+=fadeAmount)
-    setLed(pin, brightness, waitTime);  
+void SweepUp(int pin) {
+  for(int brightness = 0; brightness <= maxBrightness; brightness+=delta)
+    setLed(pin, brightness, msDelay);
 }
 
-void SweepDown(int pin, int fadeAmount, int waitTime){
-  for(int brightness = maxBrightness; brightness >= 0; brightness-=fadeAmount)
-    setLed(pin, brightness, waitTime);
+void SweepDown(int pin) {
+  for(int brightness = maxBrightness; brightness >= 0; brightness-=delta)
+    setLed(pin, brightness, msDelay);
 }
 
-void setLed(int p, int b, int d){
+void setLed(int p, int b, int d) {
   analogWrite(p, b);
   delay(d);
 }
@@ -32,4 +34,3 @@ void setLed(int p, int b, int d){
  * Try SweepDown() only
  * Mess with maxBrightness, waitTime, fadeAmount - what happens? 
  */
- 
