@@ -1,8 +1,11 @@
 
-int maxBrightness = 200;
-int DELAY = 500;
+const int MAX_BRIGHTNESS = 200;
+const int DELAY = 500;
 
 const int pin[6] = {11, 10, 9, 6, 5, 3};
+
+const int DELTA = 1;
+const int SWEEP_DELAY = 5;
 
 void setup() {
   initializePins();  
@@ -12,49 +15,44 @@ void loop() {
   walkLEDs();
 }
 
-void walkLEDs(){
-  for (int x = 0; x < 6; x++){
+void walkLEDs() {
+  for (int x = 0; x < 6; x++) {
     offLeds();
-    brightenLed(x);
+    x % 2 == 0 ? blinkLed(x) : Sweep(x);;
   }
 }
 
-void brightenLed(int x){
-  if(x % 2 == 0){
-    blinkLed(x);
-  }else{
-    SweepUp(x, 5, 30);
-    SweepDown(x, 5, 30);
-  }
-}
-
-void initializePins(){
+void initializePins() {
   for (int x = 0; x < 6; x ++)
     pinMode(pin[x], OUTPUT);
 }
 
-void offLeds(){
+void offLeds() {
   for (int x = 0; x < 6; x ++)
-    setLed(pin[x], 0, 0);
+    setLed(x, 0, 0);
 }
 
-void blinkLed(int x){
-  setLed(pin[x], maxBrightness, DELAY);
-  setLed(pin[x], 0, DELAY);
+void blinkLed(int x) {
+  setLed(x, MAX_BRIGHTNESS, DELAY);
+  setLed(x, 0, DELAY);
 }
 
-void SweepUp(int x, int fadeAmount, int waitTime){
-  for(int brightness = 0; brightness <= maxBrightness; brightness+=fadeAmount)
-    setLed(pin[x], brightness, waitTime);
+void Sweep(int x) {
+  SweepUp(x);
+  SweepDown(x);
 }
 
-void SweepDown(int x, int fadeAmount, int waitTime){
-  for(int brightness = maxBrightness; brightness >= 0; brightness-=fadeAmount)
-    setLed(pin[x], brightness, waitTime);
+void SweepUp(int x) {
+  for (int brightness = 0; brightness <= MAX_BRIGHTNESS; brightness+=DELTA)
+    setLed(x, brightness, SWEEP_DELAY);
 }
 
-void setLed(int p, int b, int d){
-  analogWrite(p, b);
+void SweepDown(int x) {
+  for (int brightness = MAX_BRIGHTNESS; brightness >= 0; brightness-=DELTA)
+    setLed(x, brightness, SWEEP_DELAY);
+}
+
+void setLed(int p, int b, int d) {
+  analogWrite(pin[p], b);
   delay(d);
 }
-
