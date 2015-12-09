@@ -1,8 +1,8 @@
 
 const int ledPin = 11;
-const int maxBrightness = 150;
-const int delta = 1;
-const int msDelay = 5;
+const int MAX_BRIGHTNESS = 150;
+const int DELTA = 1;
+const int SWEEP_DELAY = 5;
 
 void setup() {
   pinMode(ledPin, OUTPUT);
@@ -15,13 +15,13 @@ void loop() {
 }
 
 void SweepUp(int pin) {
-  for(int brightness = 0; brightness <= maxBrightness; brightness+=delta)
-    setLed(pin, brightness, msDelay);
+  for(int brightness = 0; brightness <= MAX_BRIGHTNESS; brightness+=DELTA)
+    setLed(pin, brightness, SWEEP_DELAY);
 }
 
 void SweepDown(int pin) {
-  for(int brightness = maxBrightness; brightness >= 0; brightness-=delta)
-    setLed(pin, brightness, msDelay);
+  for(int brightness = MAX_BRIGHTNESS; brightness >= 0; brightness-=DELTA)
+    setLed(pin, brightness, SWEEP_DELAY);
 }
 
 void setLed(int p, int b, int d) {
