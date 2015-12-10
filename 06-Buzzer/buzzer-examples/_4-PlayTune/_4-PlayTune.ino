@@ -6,8 +6,8 @@ Buzzer buzzer;
 Sweeper sweeper;
 
 void setup() {
-  buzzer.New(13, 1.3, 1000);
-  sweeper.New(0, superMarioTuneSize, 1, NORMAL);
+  buzzer.Format(13, 1.3, 1000);
+  sweeper.Format(0, superMarioTuneSize, 1, NORMAL);
 } 
 
 void loop() {                     

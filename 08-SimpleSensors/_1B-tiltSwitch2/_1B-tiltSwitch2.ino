@@ -11,8 +11,8 @@ volatile bool tilted = 0;
 
 void setup() {
 
-  tiltSwitch.New(3, INPUT_PULLUP, HIGH);
-  metronome.New(200);
+  tiltSwitch.Format(3, INPUT_PULLUP, HIGH);
+  metronome.Format(200);
   attachInterrupt(digitalPinToInterrupt(tiltSwitch.Pin()), tilt, CHANGE);
   Serial.begin(115200);
 }

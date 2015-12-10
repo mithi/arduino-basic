@@ -6,10 +6,10 @@ AnalogInput rPot, gPot, bPot;
 int x = 250; //maxbrightness
 
 void setup() {
-  rgb.New(11,10,9);
-  rPot.New(A5);
-  gPot.New(A4);
-  bPot.New(A3);
+  rgb.Format(11,10,9);
+  rPot.Format(A5);
+  gPot.Format(A4);
+  bPot.Format(A3);
 }
 
 void loop() {

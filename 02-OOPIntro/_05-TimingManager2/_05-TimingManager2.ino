@@ -5,8 +5,8 @@ DigitalOutput led;
 Metronome metronome;
 
 void setup() {
-  metronome.New(250);
-  led.New(11);
+  metronome.Format(250);
+  led.Format(11);
 }
 
 

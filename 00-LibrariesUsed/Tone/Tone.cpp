@@ -42,7 +42,7 @@
 // timerx_toggle_count:
 //  > 0 - duration specified
 //  = 0 - stopped
-//  < 0 - infinitely (until stop() method called, or new play() called)
+//  < 0 - infinitely (until stop() method called, or Format play() called)
 
 #if !defined(__AVR_ATmega8__)
 volatile int32_t timer0_toggle_count;

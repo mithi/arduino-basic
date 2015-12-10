@@ -8,9 +8,9 @@ Metronome metronome;
 int maxCount = 24; // max color constant value times two
 
 void setup() {
-  rgb.New(11,10,9);
-  sweeper.New(0, maxCount, 1, NORMAL);
-  metronome.New(500);
+  rgb.Format(11,10,9);
+  sweeper.Format(0, maxCount, 1, NORMAL);
+  metronome.Format(500);
 }
 
 void loop() {

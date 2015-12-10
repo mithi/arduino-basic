@@ -4,7 +4,7 @@
 Metronome metronome;
 
 void setup() {
-  metronome.New(500);
+  metronome.Format(500);
   Serial.begin(115200);
 }
 

@@ -7,7 +7,7 @@ AnalogInput pot;
 
 void setup() {
   servo.attach(9);
-  pot.New(A5);
+  pot.Format(A5);
 }
 
 void loop() {

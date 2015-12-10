@@ -4,7 +4,7 @@
 DigitalOutput led;
 
 void setup() {
-  led.New(11);
+  led.Format(11);
 }
 
 

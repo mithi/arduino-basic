@@ -14,13 +14,13 @@ byte currentSongSize;
 
 void setup() {
   
-  buzzer.New(13, 1.3, 1000);
+  buzzer.Format(13, 1.3, 1000);
   
   currentSong = superMarioTune;
   currentSongTempo = superMarioTuneTempo; 
   currentSongSize = superMarioTuneSize;
   
-  sweeper.New(0, currentSongSize, 1, NORMAL);
+  sweeper.Format(0, currentSongSize, 1, NORMAL);
 }
 
 void loop() {

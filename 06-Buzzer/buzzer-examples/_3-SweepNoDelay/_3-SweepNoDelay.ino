@@ -12,9 +12,9 @@ int f = 0;
 int dwell = 5; //try dwell = 1, 5, or 10
 
 void setup() {
-  sweeper.New(f1, f2, 1, NORMAL); 
-  buzzer.New(13, 1.3, 1000);
-  metronome.New(dwell);
+  sweeper.Format(f1, f2, 1, NORMAL); 
+  buzzer.Format(13, 1.3, 1000);
+  metronome.Format(dwell);
 }
 
 void loop() {

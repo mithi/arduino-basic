@@ -6,8 +6,8 @@ Metronome metronome;
 
 void setup() {
   
-  TemperatureSensor.New(A5, INPUT, 500, LOW, 5/10.24, -1); 
-  metronome.New(1000);
+  TemperatureSensor.Format(A5, INPUT, 500, LOW, 5/10.24, -1); 
+  metronome.Format(1000);
   
   Serial.begin(115200);
 }

@@ -9,9 +9,9 @@ int pins[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 
 void setup(){
   
-  toggler.New(0, 9, 1, NORMAL);
-  SSD.New(pins, COMMONANODE); 
-  button.New(8, 50);
+  toggler.Format(0, 9, 1, NORMAL);
+  SSD.Format(pins, COMMONANODE); 
+  button.Format(8, 50);
 }
 
 void loop(){

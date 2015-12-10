@@ -11,7 +11,7 @@ class DigitalOutput{
   int _pin;
   bool _state; 
   public:
-  void New(int p);
+  void Format(int p);
   void Set(bool s);
   void On();
   void Off();
@@ -23,7 +23,7 @@ class AnalogOutput{
   int _pin;
   int _state;
   public:
-  void New(int p);
+  void Format(int p);
   void Set(int b);
   int State();
 };
@@ -31,7 +31,7 @@ class AnalogOutput{
 class AnalogInput{
   int _pin;
   public:
-  void New(int p);
+  void Format(int p);
   int RawValue();
   int MappedValue(int mn, int mx);
 };
@@ -41,7 +41,7 @@ class RGB{
   int _greenPin;
   int _bluePin;
   public:
-  void New(int r, int g, int b);
+  void Format(int r, int g, int b);
   void Red(int r);
   void Green(int g);
   void Blue(int b);
@@ -55,7 +55,7 @@ class DigitalSensor{
   int _pin; 
   int _mode;
   public:
-  void New(int p, int m, bool i);
+  void Format(int p, int m, bool i);
   int Pin();
   bool Value();
   bool State();
@@ -70,7 +70,7 @@ class AnalogSensor{
   float _M;
   float _B;
   public:
-  void New(int p, int m, int t, bool i, float cm, float cb);
+  void Format(int p, int m, int t, bool i, float cm, float cb);
   bool IsTrue();
   float ProcessedValue();
   int RawValue();
@@ -82,7 +82,7 @@ class Buzzer{
   int _pin;
   float _pauseScale;
   public:
-  void New(int p, int ps, int wnp);
+  void Format(int p, int ps, int wnp);
   void PlayNote(int pitch, float duration);
   void Play(int freq, float period, int d);
   void Pause(float sp);
@@ -102,7 +102,7 @@ class Button{
   int _lastDebounceTime = 0;
   
   public:
-  void New(int p, int dd);
+  void Format(int p, int dd);
   void Update();
   bool Pressed();
   bool HasChanged();
@@ -120,7 +120,7 @@ class SevenSegment{
   int _pin[8];
   bool _isCommonCathode; // commonCathode = commonGround
   public:
-  void New(int p[], int c);
+  void Format(int p[], int c);
   void SetRaw(int n[]);
   void Display(byte n);
   private:
@@ -136,7 +136,7 @@ class Sweeper{
   int _step;
   unsigned long _sweepsMade;
   public:
-  void New(int s, int e, int st, byte x);
+  void Format(int s, int e, int st, byte x);
   int Next(bool itsTime);
   unsigned long SweepsMade();
   void ToggleDirection();
@@ -154,7 +154,7 @@ class Metronome{
   unsigned long _previousTime;
   unsigned long _currentTime;
   public:
-  void New(unsigned long t);
+  void Format(unsigned long t);
   bool Tick();
   void SetInterval(unsigned long t);
 };
@@ -164,7 +164,7 @@ class LedsManager{
   int _pin[6];
   int _count;
   public:
-  void New(int p[]);
+  void Format(int p[]);
   void SetBrightness(int b);
   byte Walks(byte state);
   byte WalksUp(byte state);
@@ -185,7 +185,7 @@ class Sequencer{
   byte _type;
   LedsManager* ledsManager; 
   public:
-  void New(LedsManager* LM);
+  void Format(LedsManager* LM);
   void Update(bool itIsTime);
   void Start(byte type);
   private:

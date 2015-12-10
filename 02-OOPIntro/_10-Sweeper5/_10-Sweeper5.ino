@@ -6,9 +6,9 @@ AnalogOutput led;
 Metronome metronome;
 
 void setup(){
-  led.New(11);
-  metronome.New(10);
-  sweeper.New(0, 100, 1, BACKANDFORTH);
+  led.Format(11);
+  metronome.Format(10);
+  sweeper.Format(0, 100, 1, BACKANDFORTH);
 }
 
 void loop(){

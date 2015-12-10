@@ -9,10 +9,10 @@ Button button1, button2;
 
 void setup() {
   servo.attach(9);
-  sweeper.New(0, 180, 1, BACKANDFORTH);
-  metronome.New(15);
-  button1.New(0, 50);
-  button2.New(1, 50);
+  sweeper.Format(0, 180, 1, BACKANDFORTH);
+  metronome.Format(15);
+  button1.Format(0, 50);
+  button2.Format(1, 50);
 }
 
 void loop() {

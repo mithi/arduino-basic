@@ -5,8 +5,8 @@ Sweeper sweeper;
 Metronome metronome;
 
 void setup(){
-  sweeper.New(8, 0, 2, BACKANDFORTH);
-  metronome.New(250);
+  sweeper.Format(8, 0, 2, BACKANDFORTH);
+  metronome.Format(250);
   Serial.begin(115200);
 }
 

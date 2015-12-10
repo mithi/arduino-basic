@@ -8,9 +8,9 @@ LedsManager leds;
 
 void setup() {
   
-  metronome.New(100);
-  leds.New(ledPins);
-  sequence.New(&leds);
+  metronome.Format(100);
+  leds.Format(ledPins);
+  sequence.Format(&leds);
 
   sequence.Start(STAIRS);
 }

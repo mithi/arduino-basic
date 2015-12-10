@@ -6,8 +6,8 @@ Metronome metronome;
 int oldx = 0;
 
 void setup(){
-  sweeper.New(4, 0, 1, BACKANDFORTH);
-  metronome.New(100);
+  sweeper.Format(4, 0, 1, BACKANDFORTH);
+  metronome.Format(100);
   Serial.begin(9600);
 }
 

@@ -6,8 +6,8 @@ Buzzer buzzer;
 
 void setup() {
   
-  sweeper.New(0, 180, 1, NORMAL); 
-  buzzer.New(13, 1.3, 1000);
+  sweeper.Format(0, 180, 1, NORMAL); 
+  buzzer.Format(13, 1.3, 1000);
 }
 
 void loop() {

@@ -47,12 +47,12 @@ void ledsOff(){
 void initializeObjects(){
   
   for(int x=0; x<numberOfButtons; x++)
-    button[x].New(buttonPin[x], 50);
+    button[x].Format(buttonPin[x], 50);
 
   for(int x=0; x<numberOfLeds; x++)
-    led[x].New(ledPin[x]);  
+    led[x].Format(ledPin[x]);  
 
-  metronome.New(50);
-  sweeper.New(0,numberOfLeds-1, 1, BACKANDFORTH);
+  metronome.Format(50);
+  sweeper.Format(0,numberOfLeds-1, 1, BACKANDFORTH);
 }
 

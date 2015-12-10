@@ -5,7 +5,7 @@
 Buzzer buzzer;
 
 void setup() {
-  buzzer.New(13, 1.5, 1000);
+  buzzer.Format(13, 1.5, 1000);
 }
 
 void loop() {

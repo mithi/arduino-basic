@@ -6,9 +6,9 @@ AnalogOutput led;
 
 void setup() {
 
-  pot1.New(A4);
-  pot2.New(A5);
-  led.New(11);
+  pot1.Format(A4);
+  pot2.Format(A5);
+  led.Format(11);
 }
 
 void loop() {

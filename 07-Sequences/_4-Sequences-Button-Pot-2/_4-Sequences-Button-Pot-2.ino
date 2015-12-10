@@ -13,14 +13,14 @@ AnalogInput pot1, pot2;
 
 void setup() {
   
-  pot1.New(A5);
-  pot2.New(A4);
-  button.New(0, 50);
+  pot1.Format(A5);
+  pot2.Format(A4);
+  button.Format(0, 50);
   
-  metronome.New(100);
-  leds.New(ledPins);
-  toggler.New(0, 5, 1, NORMAL); 
-  sequence.New(&leds);
+  metronome.Format(100);
+  leds.Format(ledPins);
+  toggler.Format(0, 5, 1, NORMAL); 
+  sequence.Format(&leds);
   
   sequence.Start(STAIRSUP);
 }

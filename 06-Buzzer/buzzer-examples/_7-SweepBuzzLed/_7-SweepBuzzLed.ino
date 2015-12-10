@@ -10,9 +10,9 @@ int f2 = 3500;
 int f = 0;
 
 void setup() {
-  sweeper.New(f1, f2, 1, BACKANDFORTH); 
-  buzzer.New(13, 1.3, 1000);
-  led.New(6);
+  sweeper.Format(f1, f2, 1, BACKANDFORTH); 
+  buzzer.Format(13, 1.3, 1000);
+  led.Format(6);
 }
 
 void loop() {

@@ -5,8 +5,8 @@ Sweeper sweeper;
 AnalogOutput led;
 
 void setup(){
-  led.New(11);
-  sweeper.New(0, 120, 1, BACKANDFORTH);
+  led.Format(11);
+  sweeper.Format(0, 120, 1, BACKANDFORTH);
 }
 
 void loop(){

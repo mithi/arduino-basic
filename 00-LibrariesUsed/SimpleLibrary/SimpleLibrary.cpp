@@ -11,7 +11,7 @@
  * DIGITAL OUTPUT
  **********************************/
 
-void DigitalOutput::New(int p){
+void DigitalOutput::Format(int p){
   _pin = p;
   pinMode(_pin, OUTPUT);
   Set(LOW);
@@ -42,7 +42,7 @@ bool DigitalOutput::State(){
  * ANALOG  OUTPUT
  **********************************/
 
-void AnalogOutput::New(int p){
+void AnalogOutput::Format(int p){
   _pin = p;
   _state = 0;
   pinMode(_pin, OUTPUT);
@@ -61,7 +61,7 @@ int AnalogOutput::State(){
  * ANALOG INPUT!
  **********************************/
 
-void AnalogInput::New(int p){
+void AnalogInput::Format(int p){
   _pin = p; 
   pinMode(_pin, INPUT);
 }
@@ -78,7 +78,7 @@ int AnalogInput::MappedValue(int mn, int mx){
  * RGB
  **********************************/
 
-void RGB::New(int r, int g, int b){
+void RGB::Format(int r, int g, int b){
   _redPin = r;
   _greenPin = g;
   _bluePin = b;
@@ -123,7 +123,7 @@ void RGB::Color(byte c){
  * DIGITAL SENSOR  
  **********************************/
 
-void DigitalSensor::New(int p, int m, bool i){
+void DigitalSensor::Format(int p, int m, bool i){
   _state = LOW;
   _pin = p;
   _mode = m;
@@ -147,7 +147,7 @@ bool DigitalSensor::State(){
  * ANALOG SENSOR 
  **********************************/
 
-void AnalogSensor::New(int p, int m, int t, bool i, float cm, float cb){
+void AnalogSensor::Format(int p, int m, int t, bool i, float cm, float cb){
   _inverted = i;
   _state = 0;
   _pin = p;
@@ -180,7 +180,7 @@ int AnalogSensor::MappedRawValue(int mn, int mx){
  * BUZZER
  **********************************/
 
-void Buzzer::New(int p, int ps, int wnp){
+void Buzzer::Format(int p, int ps, int wnp){
     _pin = p;
     _pauseScale = ps;
     _wholeNotePeriod = wnp;
@@ -215,7 +215,7 @@ void Buzzer::Pause(float sp){
  * BUTTON
  **********************************/
 
-void Button::New(int p, int dd){
+void Button::Format(int p, int dd){
   _pin = p;
   _debounceDelay = dd;
   pinMode(_pin, INPUT_PULLUP);
@@ -275,7 +275,7 @@ bool Button::Pressed(){
  * SEVEN SEGMENT DISPLAY
  **********************************/
 
-void SevenSegment::New(int p[], int c){
+void SevenSegment::Format(int p[], int c){
   _isCommonCathode = c;
   for(int i=0; i<8; i++){
     _pin[i] = p[i];
@@ -302,7 +302,7 @@ void SevenSegment::_set(int p, byte n){
  * SWEEPER
  **********************************/
 
-void Sweeper::New(int s, int e, int st, byte x){
+void Sweeper::Format(int s, int e, int st, byte x){
   
   if(s < e ){
    _dir = FORWARD;
@@ -396,7 +396,7 @@ void Sweeper::_backAndForthHelperReverse(){
  *  TIMING MANAGER
  *****************************************************/
 
-void Metronome::New(unsigned long t){
+void Metronome::Format(unsigned long t){
   _interval= t;
   _previousTime = millis();
   _currentTime = millis();
@@ -418,7 +418,7 @@ bool Metronome::Tick(){
  *  SEQUENCER
  *****************************************************/
 
-void Sequencer::New(LedsManager* LM){
+void Sequencer::Format(LedsManager* LM){
   _state = 0;
   _type = 0;
   ledsManager = LM;
@@ -464,7 +464,7 @@ void Sequencer::_selectSequence(){
  *  LEDS MANAGER
  *****************************************************/
 
-void LedsManager::New(int p[]){
+void LedsManager::Format(int p[]){
   _brightness = 255;
   for(int x=0; x<6; x++){
     _pin[x] = p[x];

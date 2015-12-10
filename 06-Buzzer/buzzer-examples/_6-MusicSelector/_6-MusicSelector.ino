@@ -17,15 +17,15 @@ byte currentTuneSize;
 
 void setup() {
   
-  buzzer.New(13, 1.3, 1000);
-  button.New(0, 50);
+  buzzer.Format(13, 1.3, 1000);
+  button.Format(0, 50);
   
   currentTune = underworldTune;
   currentTuneTempo = underworldTuneTempo; 
   currentTuneSize = underworldTuneSize;
 
-  sweeper.New(0, currentTuneSize, 1, NORMAL);
-  toggler.New(0, tuneCount-1, 1, NORMAL);
+  sweeper.Format(0, currentTuneSize, 1, NORMAL);
+  toggler.Format(0, tuneCount-1, 1, NORMAL);
 
 }
 
@@ -55,6 +55,6 @@ void nextMusic(){
     currentTuneSize = superMarioTuneSize;
   }
   
-  sweeper.New(0, currentTuneSize-1, 1, NORMAL);
+  sweeper.Format(0, currentTuneSize-1, 1, NORMAL);
 }
 

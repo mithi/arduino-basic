@@ -6,8 +6,8 @@ Metronome metronome;
 
 void setup() {
   
-  metronome.New(3000);
-  relay.New(0);
+  metronome.Format(3000);
+  relay.Format(0);
 }
 
 void loop() {

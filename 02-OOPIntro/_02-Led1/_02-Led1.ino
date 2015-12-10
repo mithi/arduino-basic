@@ -6,7 +6,7 @@ const int DELAY = 500;
 
 
 void setup() {
-  led.New(11);
+  led.Format(11);
   Serial.begin(115200);
 }
 

@@ -8,8 +8,8 @@ Metronome metronome;
 
 void setup() {
   servo.attach(9);
-  sweeper.New(0, 180, 1, BACKANDFORTH);
-  metronome.New(5);
+  sweeper.Format(0, 180, 1, BACKANDFORTH);
+  metronome.Format(5);
 }
 
 void loop() {

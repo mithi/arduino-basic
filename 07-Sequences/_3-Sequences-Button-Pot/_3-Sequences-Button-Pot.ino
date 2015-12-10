@@ -13,13 +13,13 @@ int ledPins[] = {11,10,9,6,5,3};
 
 void setup() {
   
-  pot.New(A5);
-  button.New(0, 50);
-  toggler.New(0, 5, 1, NORMAL);
+  pot.Format(A5);
+  button.Format(0, 50);
+  toggler.Format(0, 5, 1, NORMAL);
   
-  metronome.New(100);
-  leds.New(ledPins);
-  sequence.New(&leds);
+  metronome.Format(100);
+  leds.Format(ledPins);
+  sequence.Format(&leds);
   
   sequence.Start(STAIRSUP);
 }

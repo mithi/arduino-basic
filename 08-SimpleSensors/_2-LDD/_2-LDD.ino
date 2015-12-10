@@ -6,8 +6,8 @@ Metronome metronome;
 
 void setup() {
   
-  LDD.New(A5, INPUT_PULLUP, 700, HIGH, 1, 0); 
-  metronome.New(1000);
+  LDD.Format(A5, INPUT_PULLUP, 700, HIGH, 1, 0); 
+  metronome.Format(1000);
   Serial.begin(115200);
 }
 

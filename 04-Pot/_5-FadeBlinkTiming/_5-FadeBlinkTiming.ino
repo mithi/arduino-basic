@@ -8,9 +8,9 @@ bool state = 0;
 
 void setup() {
   
-  pot1.New(A5);
-  pot2.New(A4);
-  led.New(11);
+  pot1.Format(A5);
+  pot2.Format(A4);
+  led.Format(11);
 }
 
 void loop() {

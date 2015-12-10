@@ -5,8 +5,8 @@ Button button;
 DigitalOutput led;
 
 void setup() {
-  button.New(0, 50);
-  led.New(11);
+  button.Format(0, 50);
+  led.Format(11);
 }
 
 void loop() {

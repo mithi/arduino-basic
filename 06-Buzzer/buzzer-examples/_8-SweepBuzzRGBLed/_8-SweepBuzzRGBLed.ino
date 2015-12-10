@@ -17,11 +17,11 @@ int f = 0;
 
 void setup() {
   
-  sweeper.New(f1, f2, 1, BACKANDFORTH); 
-  toggler.New(0, maxSweepType, 1, NORMAL);
-  buzzer.New(13, 1.3, 1000);
-  button.New(0, 50);
-  rgb.New(5, 6, 9);
+  sweeper.Format(f1, f2, 1, BACKANDFORTH); 
+  toggler.Format(0, maxSweepType, 1, NORMAL);
+  buzzer.Format(13, 1.3, 1000);
+  button.Format(0, 50);
+  rgb.Format(5, 6, 9);
   
   rgb.ColorRaw(0,0,0);
 }
@@ -59,12 +59,12 @@ void processSweep(){
 void nextSweep(int c){
   
   if(c == 0)
-    sweeper.New(f1, f2, 1, BACKANDFORTH);
+    sweeper.Format(f1, f2, 1, BACKANDFORTH);
  
   if(c == 1)
-    sweeper.New(f1, f2, 1,NORMAL);
+    sweeper.Format(f1, f2, 1,NORMAL);
   
   if(c == 2)
-    sweeper.New(f2, f1, 1, NORMAL);
+    sweeper.Format(f2, f1, 1, NORMAL);
 }
 

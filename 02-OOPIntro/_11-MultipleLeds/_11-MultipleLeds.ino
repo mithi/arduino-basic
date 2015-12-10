@@ -9,15 +9,15 @@ int x;
 
 void setup() {
   
-  toggler.New(0, 2, 1, NORMAL);
+  toggler.Format(0, 2, 1, NORMAL);
   
-  metronome[0].New(DELAY);
-  metronome[1].New(2*DELAY);
-  metronome[2].New(4*DELAY);
+  metronome[0].Format(DELAY);
+  metronome[1].Format(2*DELAY);
+  metronome[2].Format(4*DELAY);
 
-  led[0].New(3);
-  led[1].New(5);
-  led[2].New(6);
+  led[0].Format(3);
+  led[1].Format(5);
+  led[2].Format(6);
 }
 
 
