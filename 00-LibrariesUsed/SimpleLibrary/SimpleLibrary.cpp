@@ -302,33 +302,32 @@ void SevenSegment::_set(int p, byte n){
  * SWEEPER
  **********************************/
 
-void Sweeper::Format(int s, int e, int st, byte x){
-  
-  if(s < e ){
-   _dir = FORWARD;
-   _start = s;
-   _end = e;
-  _state = s - st;
-  }else{
+void Sweeper::Format(int s, int e, int st, byte x) {
+
+  if (s < e) {
+    _dir = FORWARD;
+    _start = s;
+    _end = e;
+    _state = s - st;
+  } else {
     _dir = REVERSE;
     _start = e;
-    _end = s; 
-  _state = s + st;
+    _end = s;
+    _state = s + st;
   }
   _sweepsMade = 0;
   _step = st;
   _type = x;
-  _step = st;
 }
 
-int Sweeper::Next(bool itIsTime){
+int Sweeper::Next(bool itIsTime) {
 
-  if(itIsTime){
-  
-    if(_type == NORMAL){
+  if (itIsTime) {
+
+    if(_type == NORMAL) {
       _dir == FORWARD ? _forward() : _reverse(); 
-    }else{
-      _backAndForth();
+    } else {
+      _dir == FORWARD ? _backAndForthForward() : _backAndForthReverse();
     }
   }
 
@@ -347,46 +346,41 @@ void Sweeper::ToggleDirection(){
   _dir = !_dir;
 }
 
-void Sweeper::_forward(){
-  _state+=_step;
-  if(_state > _end){
+void Sweeper::_forward() {
+  _state += _step;
+  if (_state > _end) {
     _state = _start;
     _sweepsMade++;
   }
 }
 
-void Sweeper::_reverse(){
-  _state-=_step;
-  if(_state < _start){
+void Sweeper::_reverse() {
+  _state -= _step;
+  if (_state < _start) {
     _state = _end;
     _sweepsMade++;
   }
 }
 
-void Sweeper::_backAndForth(){
-  
-  _dir == FORWARD ? _backAndForthHelperForward() : _backAndForthHelperReverse();
-}
+void Sweeper::_backAndForthForward(){
 
-void Sweeper::_backAndForthHelperForward(){
+  if (_state < _end) {
+    _state += _step;
 
-  if(_state < _end){
-    _state+=_step;
-
-  }else{
+  } else {
     _dir = REVERSE;
-    _state-=_step;
+    _state -= _step;
     _sweepsMade++;
   }
 }
 
-void Sweeper::_backAndForthHelperReverse(){
+void Sweeper::_backAndForthReverse(){
 
-  if(_state > _start){
-    _state-=_step;
-  }else{
+  if (_state > _start) {
+    _state -= _step;
+  } else {
     _dir = FORWARD;
-    _state+=_step;
+    _state += _step;
     _sweepsMade++;
   }
 }

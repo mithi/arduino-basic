@@ -144,9 +144,8 @@ class Sweeper{
   private:
   void _forward();
   void _reverse();
-  void _backAndForth();
-  void _backAndForthHelperForward();
-  void _backAndForthHelperReverse();
+  void _backAndForthForward();
+  void _backAndForthReverse();
 };
 
 class Metronome{
