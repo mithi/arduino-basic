@@ -14,7 +14,7 @@ void loop() {
   playGameOfThrones();
   playMusic(superMarioTune, superMarioTuneTempo, superMarioTuneSize);
   playMusic(underworldTune, underworldTuneTempo, underworldTuneSize);
-  playMusicFloat(starSpangledBannerTune, starSpangledBannerTuneTempo, starSpangledBannerTuneSize);
+  playMusic(starSpangledBannerTune, starSpangledBannerTuneTempo, starSpangledBannerTuneSize);
 
 }
 

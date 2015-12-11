@@ -8,24 +8,18 @@ Button button;
 
 int x = 0;
 
-int *currentSong;
-byte *currentSongTempo;
-byte currentSongSize; 
+struct melody current_tune;
 
 void setup() {
   
   buzzer.Format(13, 1.3, 1000);
-  
-  currentSong = superMarioTune;
-  currentSongTempo = superMarioTuneTempo; 
-  currentSongSize = superMarioTuneSize;
-  
-  sweeper.Format(0, currentSongSize, 1, NORMAL);
+  current_tune = super_mario;
+  sweeper.Format(0, current_tune.size, 1, NORMAL);
 }
 
 void loop() {
 
-  buzzer.PlayNote(*(currentSong+x), float(*(currentSongTempo+x)));
+  buzzer.PlayNote(current_tune.tune[x], float(current_tune.tempo[x]));
   x = sweeper.Next(1);
 }
 

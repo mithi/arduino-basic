@@ -1,6 +1,7 @@
 
 #include "Pitches.h"
 
+
 /*******************************
  *  SUPER MARIO TUNE
  *******************************/
@@ -55,13 +56,42 @@ int starSpangledBannerTune[] = {
  *  STAR-SPANGLED BANNER
  *******************************/
 
-float starSpangledBannerTuneTempo[] = {
-  6,12,4,4,4,2,6,12,4,4,4,2, 8,8,8/2.9,8,4,2,8,8,4,4,4,4,4,6,12,4,4,4,2,8,8,4,4,4,2,
-  8,8,8/2.9,8,4,2,8,8,4,4,4,2, 4,4,4,8,8,4,4,4,4,8,8,8,8,4,4, 8,8,8/2.9,8,8,8,2,8,8,4,4,4,2
+byte starSpangledBannerTuneTempo[] = {
+  6,12,4,4,4,2,6,12,4,4,4,2, 8,8,3,8,4,2,8,8,4,4,4,4,4,6,12,4,4,4,2,8,8,4,4,4,2,
+  8,8,8/2.9,8,4,2,8,8,4,4,4,2, 4,4,4,8,8,4,4,4,4,8,8,8,8,4,4, 8,8,3,8,8,8,2,8,8,4,4,4,2
 };
 
 byte starSpangledBannerTuneSize=sizeof(starSpangledBannerTune)/sizeof(int);
 
+
+/*******************************
+ *  STRUCTURES
+ *******************************/
+
+struct melody{
+  int *tune;
+  byte size;
+  byte *tempo;
+};
+
+struct melody super_mario{
+  superMarioTune,
+  superMarioTuneSize,
+  superMarioTuneTempo
+};
+
+struct melody underworld{
+  underworldTune,
+  underworldTuneSize,
+  underworldTuneTempo
+};
+
+
+struct melody star_spangled_banner{
+  starSpangledBannerTune,
+  starSpangledBannerTuneSize,
+  starSpangledBannerTuneTempo
+};
 
 /*******************************
  *  STARWARS IMPERIAL MARCH

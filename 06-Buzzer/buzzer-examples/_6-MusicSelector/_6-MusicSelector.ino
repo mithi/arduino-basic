@@ -9,23 +9,19 @@ Button button;
 
 int x = 0;
 int m = 0;
-const int tuneCount = 2;
+const int tune_count = 3;
 
-int *currentTune;
-byte *currentTuneTempo;
-byte currentTuneSize; 
+struct melody current_tune;
 
 void setup() {
   
   buzzer.Format(13, 1.3, 1000);
   button.Format(0, 50);
   
-  currentTune = underworldTune;
-  currentTuneTempo = underworldTuneTempo; 
-  currentTuneSize = underworldTuneSize;
+  current_tune = super_mario;
 
-  sweeper.Format(0, currentTuneSize, 1, NORMAL);
-  toggler.Format(0, tuneCount-1, 1, NORMAL);
+  sweeper.Format(0, current_tune.size-1, 1, NORMAL);
+  toggler.Format(0, tune_count, 1, NORMAL);
 
 }
 
@@ -34,8 +30,7 @@ void loop() {
   if(button.JustPressed())
     nextMusic();
   
-  buzzer.PlayNote(*(currentTune+x), float(*(currentTuneTempo+x)));
-  
+  buzzer.PlayNote(current_tune.tune[x], float(current_tune.tempo[x]));  
   x = sweeper.Next(1);
 }
 
@@ -43,18 +38,15 @@ void nextMusic(){
   
   m = toggler.Next(1);
   
-  if (m == 0){
-    currentTune = underworldTune;
-    currentTuneTempo = underworldTuneTempo; 
-    currentTuneSize = underworldTuneSize;
-  }
+  if (m == 0)
+    current_tune = super_mario;
+    
+  if (m == 1)
+    current_tune = underworld;
 
-  if (m == 1){
-    currentTune = superMarioTune;
-    currentTuneTempo = superMarioTuneTempo; 
-    currentTuneSize = superMarioTuneSize;
-  }
+  if (m == 2)
+    current_tune = star_spangled_banner;
   
-  sweeper.Format(0, currentTuneSize-1, 1, NORMAL);
+  sweeper.Format(0, current_tune.size-1, 1, NORMAL);
 }
 

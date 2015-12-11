@@ -387,7 +387,7 @@ void Sweeper::_backAndForthReverse(){
 
 
 /*****************************************************
- *  TIMING MANAGER
+ *  METRONOME
  *****************************************************/
 
 void Metronome::Format(unsigned long t){
