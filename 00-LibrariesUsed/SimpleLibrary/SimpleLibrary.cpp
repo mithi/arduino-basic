@@ -109,7 +109,7 @@ void RGB::Color(byte c){
   
   // red, orange, yellow, green, blue, purple, pink, aqua, white, lime, indigo, teal, turquoise
   int numberOfColors = 13;
-  int  h= 100; 
+  int  h = 100; 
   
   int red[] =   {255,255, 255,   0,   0, 255, 255,   0, 255,   h,   h,   0,   0};
   int green[] = {0,    h, 255, 255, 255,   0,   0, 255, 255, 255,   0,   h, 255};
