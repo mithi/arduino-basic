@@ -239,9 +239,8 @@ void Button::_NoChange(){
 }
 
 void Button::_UpdateLastDebounceTime(){
-  if(_reading != _lastButtonState){
+  if(_reading != _lastButtonState)
     _lastDebounceTime = millis();
-  }
 }
 
 void Button::Update(){
@@ -347,7 +346,9 @@ void Sweeper::ToggleDirection(){
 }
 
 void Sweeper::_forward() {
+  
   _state += _step;
+  
   if (_state > _end) {
     _state = _start;
     _sweepsMade++;
@@ -355,7 +356,9 @@ void Sweeper::_forward() {
 }
 
 void Sweeper::_reverse() {
+  
   _state -= _step;
+  
   if (_state < _start) {
     _state = _end;
     _sweepsMade++;
@@ -368,6 +371,7 @@ void Sweeper::_backAndForthForward(){
     _state += _step;
 
   } else {
+    
     _dir = REVERSE;
     _state -= _step;
     _sweepsMade++;
@@ -378,7 +382,9 @@ void Sweeper::_backAndForthReverse(){
 
   if (_state > _start) {
     _state -= _step;
+    
   } else {
+    
     _dir = FORWARD;
     _state += _step;
     _sweepsMade++;
@@ -401,10 +407,13 @@ void Metronome::SetInterval(unsigned long t){
 }
 
 bool Metronome::Tick(){
+  
   _currentTime = millis();
   bool _answer = _currentTime - _previousTime >= _interval;
+  
   if(_answer)
     _previousTime = _currentTime;
+  
   return _answer;
 }
 
@@ -460,7 +469,8 @@ void Sequencer::_selectSequence(){
 
 void LedsManager::Format(int p[]){
   _brightness = 255;
-  for(int x=0; x<6; x++){
+  
+  for(int x = 0; x < 6; x++){
     _pin[x] = p[x];
     pinMode(_pin[x], OUTPUT);
   } 
@@ -519,7 +529,6 @@ byte LedsManager::StairsDown(byte state){
 byte LedsManager::Stairs(byte state){
   state >= 7 ? StairsDown(state) : StairsUp(state);
   return _nextState(state, 14);
-
 }
 
 void LedsManager::_stairsHelper(byte maxxer, byte state){
@@ -532,7 +541,7 @@ void LedsManager::_stairsHelper(byte maxxer, byte state){
   state >= 7 ? y = state - 7 : y = state;   
   maxxer == 1 ? cutOff = 6 - y : cutOff = y; 
   
-  for (byte x=0; x<cutOff; x++)
+  for (byte x = 0; x < cutOff; x++)
     _led(x, _brightness);
 }
 
