@@ -1,10 +1,14 @@
 - Code for an Arduino Boot Camp with emphasis on ditching delay(), basic object-oriented programming, and clean readable code.
-- [Arduino Boot Camp Website](http://mithi.github.io/arduino-basic/)
 
-# Materials 
+# [Arduino Boot Camp Website](http://mithi.github.io/arduino-basic/)
 
-  - DFRduino UNO R3  x1
-  - Prototyping Shield  x1
+# [PDF: Pitch: Not your usual Arduino Bootcamp](./docs/abc-2.pdf)
+# [PDF: Pitch 2](./docs/abc-1.pdf)
+
+
+# Materials
+
+  - Arduino UNO R3  x1
   - Jumper Cables M/M x30
   - Jumper Cables F/M x10
   - Resistor 220R x20
@@ -12,7 +16,6 @@
   - Resistor 10K x20
   - Resistor 1K x20
   - 5mm LED x10
-  - IR Receiver Diode x1
   - Mini Push Button x4
   - Ambient Light Sensor x1
   - Tilt Switch Sensor x1
@@ -27,3 +30,8 @@
   - Mini Controller (with battery CR2025 inside) x1
   - 6 x AA Battery Holder x1
   - 400 Tie Point Interlocking Solderless Breadboard  x1
+
+![](./docs/img1.png)
+
+| ![](./docs/img2.png)| ![](./docs/img3.png)| ![](./docs/img4.png)|
+|---|---|---|
